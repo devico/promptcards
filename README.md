@@ -1,6 +1,6 @@
 # README
 
-<a href="https://codeclimate.com/github/devico/promptcards"><img src="https://codeclimate.com/github/devico/promptcards/badges/gpa.svg" /></a>
+[![Code Climate](https://codeclimate.com/github/devico/promptcards/badges/gpa.svg)](https://codeclimate.com/github/devico/promptcards)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

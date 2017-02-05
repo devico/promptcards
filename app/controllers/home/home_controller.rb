@@ -2,6 +2,7 @@ class Home::HomeController < Home::BaseController
   include CardForReview
   def index
     review_card
+  end
   #   if params[:id]
   #     @card = current_user.cards.find(params[:id])
   #   else

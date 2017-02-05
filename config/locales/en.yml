@@ -1,4 +1,9 @@
 en:
+  dashboard:
+    base:
+      alert: 'You turned to a non-existent record.'
+    profile:
+      notice: 'User profile successfully updated.'
   welcome: 'Welcome.'
   original_text_label: 'Original'
   translated_text_label: 'Translation'

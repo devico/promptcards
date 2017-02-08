@@ -1,5 +1,5 @@
 module CardForReview
-  def review_card
+  def obtain_card_review
     if params[:id]
       @card = current_user.cards.find(params[:id])
     else
@@ -10,11 +10,6 @@ module CardForReview
         @card = current_user.cards.pending.first
         @card ||= current_user.cards.repeating.first
       end
-    end
-
-    respond_to do |format|
-      format.html
-      format.js
     end
   end
 end

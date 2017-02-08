@@ -4,7 +4,7 @@
 
 class SuperMemo
   class << self
-    def algorithm(args)
+    def algorithm(*args)
       quality = set_quality(args[:attempt], args[:distance], args[:distance_limit])
       efactor = set_efactor(args[:efactor], quality)
       sm_hash = if quality >= 3

@@ -123,8 +123,9 @@ describe Dashboard::TrainerController do
       end
 
       it 'repeat=3 quality=4' do
-        card = create(:card, user: @user, block: @block,
-                      interval: 16, repeat: 3, efactor: 2.7, quality: 5)
+        params = { user: @user, block: @block,
+                      interval: 16, repeat: 3, efactor: 2.7, quality: 5 }
+        card = create(:card, params)
         card = check_review_card(card, 'RoR', 1)
         card = check_review_card(card, 'house', 1)
         expect(card.efactor).to eq(2.38)

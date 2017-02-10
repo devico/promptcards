@@ -5,8 +5,11 @@ ruby '2.2.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 #gem 'rails', '4.2.1'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails-i18n'
 # Use postgresql as the database for Active Record
 gem 'pg'
+# Use Puma as the app server
+# gem 'puma', '~> 3.0'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'

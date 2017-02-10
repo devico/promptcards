@@ -1,5 +1,5 @@
 <% if card %>
-  <h2><%= t('dashboard.trainer.current_card') %></h2>
+  <h2><%= t('dashboard.trainer.current_card_label') %></h2>
 
   <%= form_tag review_card_path(card_id: card.id), method: :put, remote: true do %>
 

@@ -16,6 +16,12 @@ ru:
     user_profile_label: 'Профиль пользователя'
     delete_user_label: 'Удалить пользователя'
     delete_user_confirm: 'Вы уверены, что хотите удалить пользователя?'
+  activerecord:
+    errors:
+      messages:
+        blank: 'Необходимо заполнить поле.'
+        taken: 'Не уникальное значение.'
+        inclusion: 'Выберите локаль из выпадающего списка.'
   dashboard:
     base:
       alert: 'Вы обратились к несуществующей записи.'
@@ -27,6 +33,7 @@ ru:
       Перевод: %{translated_text}. Продолжайте."
       correct_translation_notice: 'Вы ввели верный перевод. Продолжайте.'
       incorrect_translation_alert: 'Вы ввели не верный перевод. Повторите попытку.'
+      current_card_label: 'Текущая карточка'
     user:
       log_in_is_successful_notice: 'Вход выполнен успешно.'
       log_out_is_successful_notice: 'Вы успешно вышли'
@@ -39,10 +46,3 @@ ru:
   user_created_successfully_notice: 'Пользователь успешно создан.'
   please_log_in_alert: 'Пожалуйста авторизуйтесь.'
   not_found_alert: 'Вы обратились к несуществующей записи.'
-  activerecord:
-    errors:
-      messages:
-        blank: 'Заполните поле.'
-        too_short: 'Короткое значение.'
-        confirmation: 'Значения не совпадают.'
-        taken: 'Не уникальное значение.'

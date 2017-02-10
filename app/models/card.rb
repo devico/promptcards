@@ -7,10 +7,10 @@ class Card < ActiveRecord::Base
   before_validation :set_review_date_as_now, on: :create
   validate :texts_are_not_equal
   validates :original_text, :translated_text, :review_date,
-            presence: { message: 'Необходимо заполнить поле.' }
-  validates :user_id, presence: { message: 'Ошибка ассоциации.' }
+            presence: { message: :blank }
+  validates :user_id, presence: { message: :blank }
   validates :block_id,
-            presence: { message: 'Выберите колоду из выпадающего списка.' }
+            presence: { message: :blank }
   validates :interval, :repeat, :efactor, :quality, :attempt, presence: true
 
   mount_uploader :image, CardImageUploader
@@ -18,13 +18,13 @@ class Card < ActiveRecord::Base
   scope :pending, -> { where('review_date <= ?', Time.now).order('RANDOM()') }
   scope :repeating, -> { where('quality < ?', 4).order('RANDOM()') }
 
-  #DISTANCE_LIMIT = 1
+  DISTANCE_LIMIT = 1
 
   def check_translation(user_translation)
     distance = Levenshtein.distance(full_downcase(translated_text),
                                     full_downcase(user_translation))
-    #distance_limit = DISTANCE_LIMIT
-    sm_hash = SuperMemo.algorithm(interval, repeat, efactor, attempt, distance, 1)
+    distance_limit = DISTANCE_LIMIT
+    sm_hash = SuperMemo.algorithm(interval, repeat, efactor, attempt, distance, distance_limit)
 
     if distance <= 1
       sm_hash.merge!({ review_date: Time.now + interval.to_i.days, attempt: 1 })
@@ -54,7 +54,7 @@ class Card < ActiveRecord::Base
 
   def texts_are_not_equal
     if full_downcase(original_text) == full_downcase(translated_text)
-      errors.add(:original_text, 'Вводимые значения должны отличаться.')
+      errors.add(:original_text, "Values don't must be same.")
     end
   end
 

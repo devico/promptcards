@@ -16,17 +16,24 @@ en:
     user_profile_label: 'User profile'
     delete_user_label: 'Delete user'
     delete_user_confirm: 'Are you sure delete user?'
+  activerecord:
+    errors:
+      messages:
+        blank: 'Fill out the field.'
+        taken: 'Not a unique value.'
+        inclusion: 'Select locale from dropdown box.'
   dashboard:
     base:
       alert: 'You turned to a non-existent record.'
     profile:
       notice: 'User profile successfully updated.'
     trainer:
+      correct_translation_notice: 'You have entered the correct translation. Keep It Up.'
+      incorrect_translation_alert: 'You entered an invalid translation. Please try again.'     
+      current_card_label: 'Current card'
       translation_from_misprint_alert: "You entered translation from misprint. /
       User translation: %{user_translation} / Original text: %{original_text} /
       Translated text: %{translated_text}. Please try again."
-      correct_translation_notice: 'You have entered the correct translation. Keep It Up.'
-      incorrect_translation_alert: 'You entered an invalid translation. Please try again.'
     user:      
       log_in_is_successful_notice: 'Login is successful.'
       log_out_is_successful_notice: 'Log out is successful.'
@@ -38,11 +45,4 @@ en:
       not_logged_in_alert: 'Not logged in. Check the input E-mail and Password.'
   user_created_successfully_notice: 'User created successfully.'
   please_log_in_alert: 'Please log in.'
-  not_found_alert: 'You have turned to a non-existent record.'
-  activerecord:
-    errors:
-      messages:
-        blank: 'Fill out the field.'
-        too_short: 'Short value.'
-        confirmation: 'Values do not match.'
-        taken: 'Not a unique value.'
+  not_found_alert: 'You have turned to a non-existent record.'      

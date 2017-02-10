@@ -9,7 +9,7 @@ gem 'rails-i18n'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
-# gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.0'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'

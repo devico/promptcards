@@ -4,6 +4,7 @@ ru:
     log_in_label: 'Войти'
     log_out_label: 'Выйти'
     log_in_with_github_label: 'Войти через Github'
+    log_in_is_successful_notice: 'Вход выполнен успешно.'
     sing_in_label: 'Вход'
     sing_up_label: 'Зарегистрироваться'
     please_log_in: 'Пожалуйста авторизуйтесь.'
@@ -22,20 +23,39 @@ ru:
         blank: 'Необходимо заполнить поле.'
         taken: 'Не уникальное значение.'
         inclusion: 'Выберите локаль из выпадающего списка.'
+        confirmation: 'Значения не совпадают.'
+        too_short: 'Короткое значение.'
+        invalid: 'Не верный формат.'
+      models:
+        card:
+          attributes:
+            block_id:
+              block_error: 'Выберите колоду из выпадающего списка.'
+            user_id:
+              user_error: 'Ошибка ассоциации.'
   dashboard:
     base:
       alert: 'Вы обратились к несуществующей записи.'
     profile:
       notice: 'Профиль пользователя успешно обновлен.'
+      submit: 'Сохранить'      
     trainer:
+      correct_translation_notice: 'Вы ввели верный перевод. Продолжайте.'
+      incorrect_translation_alert: 'Вы ввели не верный перевод. Повторите попытку.'
       translation_from_misprint_alert: "Вы ввели перевод c опечаткой. /
       Ваш вариант: %{user_translation} / Оригинал: %{original_text} /
       Перевод: %{translated_text}. Продолжайте."
-      correct_translation_notice: 'Вы ввели верный перевод. Продолжайте.'
-      incorrect_translation_alert: 'Вы ввели не верный перевод. Повторите попытку.'
       current_card_label: 'Текущая карточка'
+      no_review_card_text: 'Вы изучили все доступные карточки. Ожидайте наступления даты пересмотра.'
+    cards:
+      submit: 'Сохранить'
+      remove_image: 'Удалить картинку'
+      original: 'Оригинальный текст'
+      translate: 'Текст перевода'
+      image: 'Картинка'
+      prompt: 'Приглашение'
+      label: 'Название'
     user:
-      log_in_is_successful_notice: 'Вход выполнен успешно.'
       log_out_is_successful_notice: 'Вы успешно вышли'
       notice: 'Пользователь успешно удален.'
   home:

@@ -4,6 +4,7 @@ en:
     log_in_label: 'Log in'
     log_out_label: 'Log out'
     log_in_with_github_label: 'Log in with Github'
+    log_in_is_successful_notice: 'Login is successful.'
     sing_in_label: 'Sing in'
     sing_up_label: 'Sing up'
     please_log_in: 'Please log in.'
@@ -22,25 +23,45 @@ en:
         blank: 'Fill out the field.'
         taken: 'Not a unique value.'
         inclusion: 'Select locale from dropdown box.'
+        confirmation: Values do not match.'
+        too_short: 'Short value.'
+        invalid: 'Wrong format.'
+      models:
+        card:
+          attributes:
+            block_id:
+              block_error: 'Select deck from dropdown menu.'
+            user_id:
+              user_error: 'Association error.'
   dashboard:
     base:
       alert: 'You turned to a non-existent record.'
     profile:
       notice: 'User profile successfully updated.'
+      submit: 'Save'
     trainer:
       correct_translation_notice: 'You have entered the correct translation. Keep It Up.'
       incorrect_translation_alert: 'You entered an invalid translation. Please try again.'     
-      current_card_label: 'Current card'
       translation_from_misprint_alert: "You entered translation from misprint. /
       User translation: %{user_translation} / Original text: %{original_text} /
       Translated text: %{translated_text}. Please try again."
-    user:      
-      log_in_is_successful_notice: 'Login is successful.'
+      current_card_label: 'Current card'
+      no_review_card_text: You have studied all available cards. Expect the date of revision.'
+    cards:
+      submit: 'Save'
+      remove_image: 'Delete image'
+      original: 'Original text'
+      translate: 'Translated text'
+      image: 'Image'
+      prompt: 'Prompt'
+      label: 'Label'
+    user:
       log_out_is_successful_notice: 'Log out is successful.'
       notice: 'User success deleted.'
   home:
     oauths:
       log_in_is_successful_provider_notice: "Log in of your account %{provider} is successful."
+      log_in_is_successful_notice: 'Login is successful.'
       log_out_failed_provider_alert: "Log out of your account %{provider} failed."
       not_logged_in_alert: 'Not logged in. Check the input E-mail and Password.'
   user_created_successfully_notice: 'User created successfully.'

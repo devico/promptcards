@@ -1,13 +1,5 @@
 class Home::HomeController < Home::BaseController
-  include CardForReview
   def index
-  #@card = obtain_card_review
-
-  #   respond_to do |format|
-  #     format.html
-  #     format.js
-  #   end
-  # end
     if params[:id]
       @card = current_user.cards.find(params[:id])
     else

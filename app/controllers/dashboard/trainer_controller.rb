@@ -1,8 +1,6 @@
 class Dashboard::TrainerController < Dashboard::BaseController
-  include CardForReview
 
   def index
-    #@card = obtain_card_review
 
     if params[:id]
       @card = current_user.cards.find(params[:id])
@@ -25,8 +23,23 @@ class Dashboard::TrainerController < Dashboard::BaseController
   def review_card
     @card = current_user.cards.find(params[:card_id])
 
-    check_result = @card.check_translation(trainer_params[:user_translation])
+    check_result = CheckTranslation.new({ 
+                     translated_text: @card.translated_text,
+                     user_translation: trainer_params[:user_translation],
+                     review_date: @card.review_date,
+                     interval: @card.interval,
+                     repeat: @card.repeat,
+                     efactor: @card.efactor,
+                     attempt: @card.attempt
+                   }).check_translation
 
+    @card.update(review_date: check_result[:review_date],
+                 attempt: check_result[:attempt],
+                 interval: check_result[:interval],
+                 efactor: check_result[:efactor],
+                 repeat: check_result[:repeat],
+                 quality: check_result[:quality])
+             
     if check_result[:state]
       if check_result[:distance] == 0
         flash[:notice] = t 'dashboard.trainer.correct_translation_notice'

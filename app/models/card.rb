@@ -18,17 +18,6 @@ class Card < ActiveRecord::Base
   scope :pending, -> { where('review_date <= ?', Time.now).order('RANDOM()') }
   scope :repeating, -> { where('quality < ?', 4).order('RANDOM()') }
 
-  
-
-  def self.pending_cards_notification
-    users = User.where.not(email: nil)
-    users.each do |user|
-      if user.cards.pending.any?
-        CardsMailer.pending_cards_notification(user.email).deliver
-      end
-    end
-  end
-
   protected
 
   def set_review_date_as_now

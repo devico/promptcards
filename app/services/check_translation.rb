@@ -14,7 +14,7 @@ class CheckTranslation
 
   DISTANCE_LIMIT = 1
   
-  def check_translation
+  def call
     distance = Levenshtein.distance(full_downcase(@translated_text),
                                     full_downcase(@user_translation))
     distance_limit = DISTANCE_LIMIT

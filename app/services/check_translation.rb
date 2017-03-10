@@ -18,7 +18,12 @@ class CheckTranslation
     distance = Levenshtein.distance(full_downcase(@translated_text),
                                     full_downcase(@user_translation))
     distance_limit = DISTANCE_LIMIT
-    sm_hash = SuperMemo.algorithm(@interval, @repeat, @efactor, @attempt, distance, distance_limit)
+    sm_hash = SuperMemo.algorithm({ interval: @interval, 
+                                    repeat: @repeat,
+                                    efactor: @efactor,
+                                    attempt: @attempt,
+                                    distance: distance, 
+                                    distance_limit: distance_limit })
 
     result = if distance <= 1
                sm_hash.merge!({ review_date: Time.now + @interval.to_i.days, attempt: 1 })

@@ -11,7 +11,7 @@ describe 'review cards without blocks' do
     end
 
     it 'no cards' do
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
+      expect(page).to have_content "Ожидайте дату следующего просмотра."
     end
   end
 end
@@ -25,7 +25,7 @@ describe 'review cards with one block' do
     end
 
     it 'no cards' do
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
+      expect(page).to have_content "Ожидайте дату следующего просмотра."
     end
   end
 
@@ -88,7 +88,7 @@ describe 'review cards with one block' do
     it 'correct translation' do
       fill_in 'user_translation', with: 'house'
       click_button 'Проверить'
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
+      expect(page).to have_content "Ожидайте дату следующего просмотра."
     end
 
     it 'incorrect translation distance=2' do
@@ -123,7 +123,7 @@ describe 'review cards with one block' do
       click_button 'Проверить'
       fill_in 'user_translation', with: 'House'
       click_button 'Проверить'
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
+      expect(page).to have_content "Ожидайте дату следующего просмотра."
     end
   end
 end
@@ -137,7 +137,7 @@ describe 'review cards with two blocks' do
     end
 
     it 'no cards' do
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
+      expect(page).to have_content "Ожидайте дату следующего просмотра."
     end
   end
 
@@ -200,7 +200,7 @@ describe 'review cards with two blocks' do
     it 'correct translation' do
       fill_in 'user_translation', with: 'house'
       click_button 'Проверить'
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
+      expect(page).to have_content "Ожидайте дату следующего просмотра."
     end
 
     it 'incorrect translation distance=2' do
@@ -227,7 +227,7 @@ describe 'review cards with current_block' do
     end
 
     it 'no cards' do
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
+      expect(page).to have_content "Ожидайте дату следующего просмотра."
     end
   end
 
@@ -294,7 +294,7 @@ describe 'review cards with current_block' do
     it 'correct translation' do
       fill_in 'user_translation', with: 'house'
       click_button 'Проверить'
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
+      expect(page).to have_content "Ожидайте дату следующего просмотра."
     end
 
     it 'incorrect translation distance=2' do
@@ -307,7 +307,7 @@ describe 'review cards with current_block' do
     it 'correct translation distance=1' do
       fill_in 'user_translation', with: 'hous'
       click_button 'Проверить'
-      expect(page).to have_content 'Ожидайте наступления даты пересмотра.'
+      expect(page).to have_content "Ожидайте дату следующего просмотра."
     end
   end
 end

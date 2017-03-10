@@ -12,16 +12,16 @@ class Dashboard::TrainerController < Dashboard::BaseController
 
     if @result.state
       if @result.distance == 0
-        flash[:notice] = t 'dashboard.trainer.correct_translation_notice'
+        flash[:notice] = t('.correct_translation_notice')
       else
-        flash[:alert] = t 'dashboard.trainer.translation_from_misprint_alert', 
+        flash[:alert] = t '.translation_from_misprint_alert', 
                           user_translation: trainer_params[:user_translation],
                           original_text: @result.card.original_text,
                           translated_text: @result.card.translated_text
       end
       redirect_to trainer_path
     else
-      flash[:alert] = t('dashboard.trainer.incorrect_translation_alert')
+      flash[:alert] = t('.incorrect_translation_alert')
       redirect_to trainer_path(id: @result.card.id)
     end
   end

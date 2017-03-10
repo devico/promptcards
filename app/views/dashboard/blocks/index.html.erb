@@ -12,18 +12,18 @@
 
       <% if block.current? %>
         <td>
-          <%= link_to 'Сделать обычной', reset_as_current_block_path(block),
+          <%= link_to t('.set_common'), reset_as_current_block_path(block),
                       method: :put %>
         </td>
       <% else %>
         <td>
-          <%= link_to 'Сделать текущей', set_as_current_block_path(block),
+          <%= link_to t('.set_current'), set_as_current_block_path(block),
                       method: :put %>
         </td>
       <% end %>
-      <td><%= link_to 'Редактировать', edit_block_path(block) %></td>
-      <td><%= link_to 'Удалить', block, method: :delete,
-                      data: { confirm: 'Удалить колоду?' } %></td>
+      <td><%= link_to t('.edit'), edit_block_path(block) %></td>
+      <td><%= link_to t('.delete'), block, method: :delete,
+                      data: { confirm: t('.delete_block') } %></td>
     </tr>
   <% end %>
   </tbody>

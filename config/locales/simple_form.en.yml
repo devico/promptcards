@@ -28,13 +28,12 @@ en:
     trainer:
       original: 'Original'
       translate: 'Translation'
-      current_card: 'Current card'
       check_card_button: 'Check'
-      no_review_card: 'You have studied all available cards. Expect the date of revision.'
   home:
     user:
       email: 'E-Mail'
-      passwd: 'Password'
+      passwd: 'Password'      
+      passwd_confirm: "Confirm password"
       log_in: 'Log in'
       sign_up: 'Sing up'
       # You can uncomment the line below if you need to overwrite the whole required html.

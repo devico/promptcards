@@ -9,14 +9,10 @@ en:
       all_decks_label: 'All deck'
       add_deck_label: 'Add deck'
       all_cards_label: 'All cards'
-      add_card_label: 'Add card'  
+      add_card_label: 'Add card'
       user_profile_label: 'User profile'
       delete_user_label: 'Delete user'
-    sing_in_label: 'Sing in'
     welcome: 'Welcome.'
-    log_in_is_successful_notice: 'Login is successful.'    
-    please_log_in: 'Please log in.'
-    registration_label: 'Registration'
     delete_user_confirm: 'Are you sure delete user?'
   activerecord:
     errors:
@@ -36,19 +32,24 @@ en:
               user_error: 'Association error.'
   dashboard:
     base:
+      please_log_in: 'Please log in.'
+      not_found_alert: 'You have turned to a non-existent record.'
       alert: 'You turned to a non-existent record.'
     profile:
       notice: 'User profile successfully updated.'
-      submit: 'Save'
     trainer:
       correct_translation_notice: 'You have entered the correct translation. Keep It Up.'
-      incorrect_translation_alert: 'You entered an invalid translation. Please try again.'     
+      incorrect_translation_alert: 'You entered an invalid translation. Please try again.'
       translation_from_misprint_alert: "You entered translation from misprint. /
       User translation: %{user_translation} / Original text: %{original_text} /
       Translated text: %{translated_text}. Please try again."
+      no_review_card_text: 'You have studied all available cards. Expect the date of revision.'
       current_card_label: 'Current card'
-      no_review_card_text: You have studied all available cards. Expect the date of revision.'
     cards:
+      index:
+        edit: 'Edit'
+        delete: 'Delete'
+        delete_record: 'Delete record?'
       submit: 'Save'
       remove_image: 'Delete image'
       original: 'Original text'
@@ -56,15 +57,26 @@ en:
       image: 'Image'
       prompt: 'Prompt'
       label: 'Label'
-    user:
+    user_sessions:
       log_out_is_successful_notice: 'Log out is successful.'
+    users:
       notice: 'User success deleted.'
+    blocks:
+      index:
+        set_common: 'Set common'
+        set_current: 'Set current'
+        edit: 'Edit'
+        delete: 'Delete'
+        delete_block: 'Delete block?'
   home:
     oauths:
       log_in_is_successful_provider_notice: "Log in of your account %{provider} is successful."
-      log_in_is_successful_notice: 'Login is successful.'
       log_out_failed_provider_alert: "Log out of your account %{provider} failed."
+    user_sessions:
+      new:        
+        sing_in_label: 'Sing in'
+      log_in_is_successful_notice: 'Login is successful.'
       not_logged_in_alert: 'Not logged in. Check the input E-mail and Password.'
-  user_created_successfully_notice: 'User created successfully.'
-  please_log_in_alert: 'Please log in.'
-  not_found_alert: 'You have turned to a non-existent record.'      
+    users:
+      registration_label: 'Registration'
+      user_created_successfully_notice: 'User created successfully.'

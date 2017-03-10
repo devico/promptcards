@@ -12,11 +12,7 @@ ru:
       add_card_label: 'Добавить карточку'
       user_profile_label: 'Профиль пользователя'
       delete_user_label: 'Удалить пользователя'
-    sing_in_label: 'Вход'
     welcome: 'Добро пожаловать.'
-    log_in_is_successful_notice: 'Вход выполнен успешно.'
-    please_log_in: 'Пожалуйста авторизуйтесь.'
-    registration_label: 'Регистрация'
     delete_user_confirm: 'Вы уверены, что хотите удалить пользователя?'
   activerecord:
     errors:
@@ -36,19 +32,24 @@ ru:
               user_error: 'Ошибка ассоциации.'
   dashboard:
     base:
+      please_log_in: 'Пожалуйста авторизуйтесь.'
+      not_found_alert: 'Вы обратились к несуществующей записи.'
       alert: 'Вы обратились к несуществующей записи.'
     profile:
       notice: 'Профиль пользователя успешно обновлен.'
-      submit: 'Сохранить'      
     trainer:
       correct_translation_notice: 'Вы ввели верный перевод. Продолжайте.'
       incorrect_translation_alert: 'Вы ввели не верный перевод. Повторите попытку.'
       translation_from_misprint_alert: "Вы ввели перевод c опечаткой. /
       Ваш вариант: %{user_translation} / Оригинал: %{original_text} /
       Перевод: %{translated_text}. Продолжайте."
+      no_review_card_text: 'Вы изучили все доступные карточки. Ожидайте дату следующего просмотра.'
       current_card_label: 'Текущая карточка'
-      no_review_card_text: 'Вы изучили все доступные карточки. Ожидайте наступления даты пересмотра.'
     cards:
+      index:
+        edit: 'Редактировать'
+        delete: 'Удалить'
+        delete_record: 'Удалить запись?'
       submit: 'Сохранить'
       remove_image: 'Удалить картинку'
       original: 'Оригинальный текст'
@@ -56,14 +57,26 @@ ru:
       image: 'Картинка'
       prompt: 'Приглашение'
       label: 'Название'
-    user:
-      log_out_is_successful_notice: 'Вы успешно вышли'
+    user_sessions:
+      log_out_is_successful_notice: 'Вы успешно вышли.'
+    users:
       notice: 'Пользователь успешно удален.'
+    blocks:
+      index:
+        set_common: 'Сделать обычной'
+        set_current: 'Сделать текущей'
+        edit: 'Редактировать'
+        delete: 'Удалить'
+        delete_block: 'Удалить колоду?'
   home:
     oauths:
       log_in_is_successful_provider_notice: "Вход в свой аккаун %{provider} выполнен успешно."
       log_out_failed_provider_alert: "Выход из своего аккаунта %{provider} не произведен."
+    user_sessions:
+      new:        
+        sing_in_label: 'Вход'
+      log_in_is_successful_notice: 'Вход выполнен успешно.'
       not_logged_in_alert: 'Вход не выполнен. Проверте вводимые E-mail и Пароль.'
-  user_created_successfully_notice: 'Пользователь успешно создан.'
-  please_log_in_alert: 'Пожалуйста авторизуйтесь.'
-  not_found_alert: 'Вы обратились к несуществующей записи.'
+    users:
+      registration_label: 'Регистрация'
+      user_created_successfully_notice: 'Пользователь успешно создан.'

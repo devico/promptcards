@@ -28,9 +28,7 @@ ru:
     trainer:
       original: 'Оригинал'
       translate: 'Перевод'
-      current_card: 'Текущая карточка'
       check_card_button: 'Проверить'
-      no_review_card: 'Вы изучили все доступные карточки. Ожидайте дату следующего просмотра.'
   home:
     user:
       email: 'E-Mail'

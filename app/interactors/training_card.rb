@@ -23,11 +23,11 @@ class TrainingCard
 
   def card_current_block
     card = context.user.current_block.cards.pending.first
-    card ||= context.user.current_block.cards.repeating.first
+    card || context.user.current_block.cards.repeating.first
   end
 
   def all_cards_user
     card = context.user.cards.pending.first
-    card ||= context.user.cards.repeating.first
+    card || context.user.cards.repeating.first
   end
 end

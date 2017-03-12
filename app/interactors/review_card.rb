@@ -26,10 +26,10 @@ class ReviewCard
   end
 
   def distance_notice(distance)
-    notice = if distance == 0
-               I18n.t('dashboard.trainer.correct_translation_notice')
-             else
-               I18n.t 'dashboard.trainer.translation_from_misprint_alert', 
+    if distance == 0
+      notice = I18n.t('dashboard.trainer.correct_translation_notice')
+    else
+      notice = I18n.t 'dashboard.trainer.translation_from_misprint_alert', 
                  user_translation: context.user_translation,
                  original_text: @card.original_text,
                  translated_text: @card.translated_text

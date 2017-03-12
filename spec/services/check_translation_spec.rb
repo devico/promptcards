@@ -1,7 +1,7 @@
 require 'rails_helper'
 describe CheckTranslation do
 
-  subject { CheckTranslation.new(params) }
+  subject { CheckTranslation.new() }
 
   describe '#call' do
 
@@ -13,14 +13,14 @@ describe CheckTranslation do
                  efactor: 2.5,
                  attempt: 1 } }
       it "is valid" do
-        expect(subject.call[:review_date].strftime('%Y-%m-%d %H:%M')).
+        expect(subject.call(params)[:review_date].strftime('%Y-%m-%d %H:%M')).
           to eq((Time.now + 1.days).strftime('%Y-%m-%d %H:%M'))
-        expect(subject.call[:attempt]).to eq(1)
-        expect(subject.call[:interval]).to eq(6)
-        expect(subject.call[:efactor]).to eq(2.6)
-        expect(subject.call[:repeat]).to eq(2)
-        expect(subject.call[:state]).to be_truthy
-        expect(subject.call[:distance]).to eq(0)
+        expect(subject.call(params)[:attempt]).to eq(1)
+        expect(subject.call(params)[:interval]).to eq(6)
+        expect(subject.call(params)[:efactor]).to eq(2.6)
+        expect(subject.call(params)[:repeat]).to eq(2)
+        expect(subject.call(params)[:state]).to be_truthy
+        expect(subject.call(params)[:distance]).to eq(0)
       end
     end
 
@@ -32,12 +32,12 @@ describe CheckTranslation do
                  efactor: 2.5,
                  attempt: 1 } }
       it "is valid" do
-        expect(subject.call[:attempt]).to eq(2)
-        expect(subject.call[:interval]).to eq(1)
-        expect(subject.call[:efactor].round 2).to eq(2.18)
-        expect(subject.call[:repeat]).to eq(1)
-        expect(subject.call[:state]).to be_falsey
-        expect(subject.call[:distance]).to eq(4)
+        expect(subject.call(params)[:attempt]).to eq(2)
+        expect(subject.call(params)[:interval]).to eq(1)
+        expect(subject.call(params)[:efactor].round 2).to eq(2.18)
+        expect(subject.call(params)[:repeat]).to eq(1)
+        expect(subject.call(params)[:state]).to be_falsey
+        expect(subject.call(params)[:distance]).to eq(4)
       end
     end
   end

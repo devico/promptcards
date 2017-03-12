@@ -4,18 +4,9 @@ include TrainerHelper
 
 describe ReviewCard do
 
-  before do
-    @user = FactoryGirl.create(:user, email: 'test@test.ru',
-                               password: '12345',
-                               password_confirmation: '12345',
-                               locale: 'ru')
-    @block = FactoryGirl.create(:block)
-  end
-
   describe '#call' do
       it 'correct translation' do
-        card = create(:card, user: @user, block: @block,
-                      interval: 1, repeat: 1, efactor: 2.5, quality: 5)
+        card = FactoryGirl.create(:card, :with_user_and_block)
         ReviewCard.call(card_id: card.id, user_translation: 'house')
         card = Card.find_by(id: card.id)
         expect(card.review_date.strftime('%Y-%m-%d %H:%M')).
@@ -26,8 +17,7 @@ describe ReviewCard do
       end
 
       it 'incorrect translation' do
-        card = create(:card, user: @user, block: @block,
-                      interval: 1, repeat: 1, efactor: 2.5, quality: 4)
+        card = create(:card, :with_user_and_block, quality: 4)
         ReviewCard.call(card_id: card.id, user_translation: 'RoR')
         card = Card.find_by(id: card.id)
         expect(card.interval).to eq(1)
@@ -38,8 +28,7 @@ describe ReviewCard do
       end
 
       it 'correct and incorrect translation' do
-        card = create(:card, user: @user, block: @block,
-                      interval: 1, repeat: 1, efactor: 2.5, quality: 4)
+        card = create(:card, :with_user_and_block, quality: 4)
         ReviewCard.call(card_id: card.id, user_translation: 'house')
         card = Card.find_by(id: card.id)
         card.update(review_date: Time.zone.now)

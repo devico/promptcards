@@ -1,7 +1,13 @@
 class Dashboard::TrainerController < Dashboard::BaseController
 
   def index
-    training_card
+    result = TrainingCard.call(user: current_user, card_id: params[:id])
+    @card = result.card
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def review_card
@@ -11,14 +17,7 @@ class Dashboard::TrainerController < Dashboard::BaseController
     )
 
     if @result.state
-      if @result.distance == 0
-        flash[:notice] = t('.correct_translation_notice')
-      else
-        flash[:alert] = t '.translation_from_misprint_alert', 
-                          user_translation: trainer_params[:user_translation],
-                          original_text: @result.card.original_text,
-                          translated_text: @result.card.translated_text
-      end
+      flash[:notice] = @result.message
       redirect_to trainer_path
     else
       flash[:alert] = t('.incorrect_translation_alert')

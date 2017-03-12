@@ -1,0 +1,60 @@
+ru:
+  simple_form:
+    "yes": 'Да'
+    "no": 'Нет'
+    required:
+      text: 'требуется'
+      mark: '*'
+    error_notification:
+      default_message: "Please review the problems below:"
+  dashboard:
+    blocks:
+      label: "Название"
+      submit: "Сохранить"
+    cards:
+      original: 'Оригинал'
+      translate: 'Перевод'
+      image: 'Изображение'
+      prompt: 'Выберите колоду'
+      label: 'Колоды'
+      remove_image: 'Удалить изображение'
+      submit: 'Сохранить'
+    profile:
+      prompt: 'Выберите локаль'
+      label: 'Локаль'
+      passwd: 'Пароль'
+      passwd_confirm: 'Подтверждение пароля'
+      submit: 'Сохранить'
+    trainer:
+      original: 'Оригинал'
+      translate: 'Перевод'
+      check_card_button: 'Проверить'
+  home:
+    user:
+      email: 'E-Mail'
+      passwd: 'Пароль'
+      passwd_confirm: "Подтверждение пароля"
+      log_in: 'Войти'
+      sign_up: 'Зарегистрироваться'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    # Examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+    # include_blanks:
+    #   defaults:
+    #     age: 'Rather not say'
+    # prompts:
+    #   defaults:
+    #     age: 'Select your age'

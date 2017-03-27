@@ -17,17 +17,6 @@ postgresql_database_user 'promptcards' do
   action :create
 end
 
-# postgresql_database_user 'promptcards' do
-#   connection postgresql_connection_info
-#   privileges [:all]
-#   action :grant
-  # tables [:all]
-  # sequences [:all]
-  # functions [:all]
-  # privileges    [:all]
-  # action        [:grant, :grant_schema, :grant_table, :grant_sequence, :grant_function]
-# end
-
 postgresql_database 'promptcards_development' do
   connection postgresql_connection_info
   encoding 'unicode'

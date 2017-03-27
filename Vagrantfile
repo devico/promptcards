@@ -14,10 +14,6 @@ if not plugins_to_install.empty?
   end
 end
 
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "elastic/fedora-23-x86_64"
 
@@ -82,18 +78,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       "run_list": ["recipe[postgresql::server]"]
     }
   end
-
-# $script = <<SCRIPT
-# cd /vagrant
-# sudo -u postgres psql -c "CREATE USER vagrant WITH PASSWORD '123654123';"
-# sudo -u postgres psql -c "CREATE USER promptcards WITH PASSWORD '123654123';"
-# sudo -u postgres psql -c "CREATE DATABASE promptcards_development OWNER promptcards;"
-# sudo -u postgres psql -c "CREATE DATABASE promptcards_test OWNER promptcards;"
-# sudo -u postgres psql -c "CREATE DATABASE promptcards_production OWNER promptcards;"
-# sudo -u postgres psql -c "ALTER USER promptcards WITH SUPERUSER CREATEROLE CREATEDB REPLICATION;"
-# sudo -u postgres psql -c "ALTER USER vagrant WITH SUPERUSER CREATEROLE CREATEDB REPLICATION;"
-# SCRIPT
-
-#   config.vm.provision :shell, :inline => $script, privileged: true
-
 end

@@ -2,29 +2,31 @@
 # chef.add_recipe 'current_project::psql_db'
 
 # easy_create_database
+include_recipe "postgresql::server"
+include_recipe "database::postgresql"
 
 postgresql_connection_info = {
-  :host     => '127.0.0.1'
+  :host     => '127.0.0.1',
   :username => 'postgres',
   :password => node['postgresql']['password']['postgres']
 }
 
 postgresql_database_user 'promptcards' do
   connection postgresql_connection_info
-  password   '123654123'
-  action     :create
+  password '123654123'
+  action :create
 end
 
-postgresql_database_user 'promptcards' do
-  connection postgresql_connection_info
-  privileges [:all]
-  action :grant
+# postgresql_database_user 'promptcards' do
+#   connection postgresql_connection_info
+#   privileges [:all]
+#   action :grant
   # tables [:all]
   # sequences [:all]
   # functions [:all]
   # privileges    [:all]
   # action        [:grant, :grant_schema, :grant_table, :grant_sequence, :grant_function]
-end
+# end
 
 postgresql_database 'promptcards_development' do
   connection postgresql_connection_info

@@ -49,9 +49,15 @@ GIT
       compat_resource (>= 12.16.3)
       openssl (>= 4.0)
 
+PATH
+  remote: ./cookbooks_addons/current_project
+  specs:
+    current_project (0.1.0)
+
 DEPENDENCIES
   apt (>= 0)
   build-essential (>= 0)
+  current_project (>= 0)
   database (~> 6.1.1)
   git (~> 6.0.0)
   nodejs (~> 3.0.0)

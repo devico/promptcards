@@ -22,5 +22,8 @@ public/uploads/*
 /config/application.yml
 .env
 
+#Ignore vagrant
+/.vagrant
+
 #Ignore cookbooks
 /cookbooks

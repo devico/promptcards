@@ -10,4 +10,4 @@ cookbook 'database', '~> 6.1.1'
 cookbook 'git', '~> 6.0.0'
 cookbook 'nodejs', '~> 3.0.0'
 
-#cookbook 'current_project', path: './cookbook_addons/current_project'
+cookbook 'current_project', path: './cookbooks_addons/current_project'

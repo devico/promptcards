@@ -46,8 +46,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe 'postgresql::server'
     chef.add_recipe 'postgresql::client'
     chef.add_recipe 'postgresql::ruby'
-    #chef.add_recipe 'current_project::psql_db'
+    chef.add_recipe 'current_project::psql_db'
     chef.add_recipe 'nodejs'
+    chef.add_recipe 'current_project::run_rails'
     chef.add_recipe 'git'
 
     chef.json = {
@@ -62,29 +63,37 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         }]
       },
       postgresql: {
-        pg_hba: [{
-          comment: "# Add promptcards role",
-          :type => 'local', :db => 'all', :user => 'all', :addr => nil, :method => 'trust'
-        }], 
+        pg_hba: [
+          {type: 'local', db: 'all', user: 'postgres', addr: nil, method: 'trust'},
+          {type: 'local', db: 'all', user: 'all', addr: nil, method: 'trust'},
+          {type: 'host', db: 'all', user: 'all', addr: '127.0.0.1/32', method: 'trust'},
+          {type: 'host', db: 'all', user: 'all', addr: '::1/128', method: 'trust' }
+        ], 
         password: {
-          postgres: "123654123"
+          postgres: ""
+        },
+        user: {
+          name: 'vagrant',
+          password: '',
+          createdb: true,
+          login: true
         }
       },
       "run_list": ["recipe[postgresql::server]"]
     }
   end
 
-$script = <<SCRIPT
-cd /vagrant
-sudo -u postgres psql -c "CREATE USER vagrant WITH PASSWORD '123654123';"
-sudo -u postgres psql -c "CREATE USER promptcards WITH PASSWORD '123654123';"
-sudo -u postgres psql -c "CREATE DATABASE promptcards_development OWNER promptcards;"
-sudo -u postgres psql -c "CREATE DATABASE promptcards_test OWNER promptcards;"
-sudo -u postgres psql -c "CREATE DATABASE promptcards_production OWNER promptcards;"
-sudo -u postgres psql -c "ALTER USER promptcards WITH SUPERUSER CREATEROLE CREATEDB REPLICATION;"
-sudo -u postgres psql -c "ALTER USER vagrant WITH SUPERUSER CREATEROLE CREATEDB REPLICATION;"
-SCRIPT
+# $script = <<SCRIPT
+# cd /vagrant
+# sudo -u postgres psql -c "CREATE USER vagrant WITH PASSWORD '123654123';"
+# sudo -u postgres psql -c "CREATE USER promptcards WITH PASSWORD '123654123';"
+# sudo -u postgres psql -c "CREATE DATABASE promptcards_development OWNER promptcards;"
+# sudo -u postgres psql -c "CREATE DATABASE promptcards_test OWNER promptcards;"
+# sudo -u postgres psql -c "CREATE DATABASE promptcards_production OWNER promptcards;"
+# sudo -u postgres psql -c "ALTER USER promptcards WITH SUPERUSER CREATEROLE CREATEDB REPLICATION;"
+# sudo -u postgres psql -c "ALTER USER vagrant WITH SUPERUSER CREATEROLE CREATEDB REPLICATION;"
+# SCRIPT
 
-  config.vm.provision :shell, :inline => $script, privileged: true
+#   config.vm.provision :shell, :inline => $script, privileged: true
 
 end

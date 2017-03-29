@@ -8,6 +8,8 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'rails-i18n'
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'activeadmin', '~> 1.0.0.pre5'
+gem 'inherited_resources', '~> 1.7'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem 'sass-rails'

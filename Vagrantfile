@@ -70,6 +70,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         },
         user: {
           name: 'vagrant',
+          role: 'vagrant',
           password: '',
           createdb: true,
           login: true

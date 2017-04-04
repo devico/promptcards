@@ -18,3 +18,4 @@ doc.search('//table/tbody/tr').each do |row|
   translated = row.search('td[1]/p')[0].content.downcase
   Card.create(original_text: original, translated_text: translated, user_id: 17)
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

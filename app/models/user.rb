@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable,
+  # :trackable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   has_many :cards, dependent: :destroy
   has_many :blocks, dependent: :destroy
   has_many :authentications, dependent: :destroy
@@ -8,9 +13,9 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :authentications
 
-  authenticates_with_sorcery! do |config|
-    config.authentications_class = Authentication
-  end
+  # authenticates_with_sorcery! do |config|
+  #   config.authentications_class = Authentication
+  # end
 
   validates :password, confirmation: true, presence: true,
             length: { minimum: 3 }

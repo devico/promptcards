@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   filter :locale
 
   root 'main#index'
@@ -6,6 +7,10 @@ Rails.application.routes.draw do
   scope module: 'home' do
     resources :user_sessions, only: [:new, :create]
     resources :users, only: [:new, :create]
+
+    post 'oauth/callback' => 'oauths#callback'
+    get 'oauth/callback' => 'oauths#callback'
+    get 'oauth/:provider' => 'oauths#oauth', as: :auth_at_provider
   end
 
   scope module: 'dashboard' do

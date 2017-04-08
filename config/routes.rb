@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users, ActiveAdmin::Devise.config
+  # devise_for :users, ActiveAdmin::Devise.config
+  # ActiveAdmin.routes(self)
+  devise_for :admin_users, {class_name: 'User'}.merge(ActiveAdmin::Devise.config)
   ActiveAdmin.routes(self)
+
+  devise_for :users, controllers: { registrations: "my_devise/registrations" }
+
   filter :locale
 
   root 'main#index'
+
+  devise_scope :user do
+    get "sign_in" => "devise/sessions#new" # custom path to login/sign_in
+    get "sign_up" => "devise/registrations#new" #, as: "new_user_registration" # custom path to sign_up/registration
+  end
 
   scope module: 'home' do
     resources :user_sessions, only: [:new, :create]

@@ -11,7 +11,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-user = User.create(email: 'qaz@zaq.ru', password: '123321', password_confirmation: '123321')
+user = User.create!(email: 'qaz@zaq.ru', password: '123321', password_confirmation: '123321')
 
 block = user.blocks.create(title: 'Home things')
 
@@ -22,4 +22,7 @@ doc.search('//table/tbody/tr').each do |row|
   translated = row.search('td[4]')[0].content.downcase
   block.cards.create(original_text: original, translated_text: translated, user_id: user.id)
 end
-User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
+default_user = User.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+default_user.role = 1
+default_user.save

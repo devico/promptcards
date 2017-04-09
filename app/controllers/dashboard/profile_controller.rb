@@ -16,6 +16,6 @@ class Dashboard::ProfileController < Dashboard::BaseController
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation,
-                                 :locale)
+                                 :locale, :role)
   end
 end

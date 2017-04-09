@@ -1,5 +1,5 @@
 class Home::UsersController < Home::BaseController
-
+  
   def new
     if current_user
       redirect_to root_path
@@ -15,6 +15,14 @@ class Home::UsersController < Home::BaseController
       redirect_to root_path, notice: t('.user_created_successfully_notice')
     else
       respond_with @user 
+    end
+  end
+
+  def update
+    if current_user.update(user_params)
+      redirect_to root_path, notice: t('user.notice_update')
+    else
+      render :edit
     end
   end
 

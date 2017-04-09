@@ -1,6 +1,8 @@
 require "application_responder"
 
 class ApplicationController < ActionController::Base
+  include Pundit
+  rescue_from Pundit::NotAuthorizedError,  with: :user_not_authorized
   self.responder = ApplicationResponder
   respond_to :html
 
@@ -34,5 +36,10 @@ class ApplicationController < ActionController::Base
 
   def default_url_options(options = {})
     { locale: I18n.locale }.merge options
+  end
+
+  def user_not_authorized
+    flash[:alert] = "Access denied."
+    redirect_to root_path
   end
 end

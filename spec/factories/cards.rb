@@ -13,8 +13,8 @@ FactoryGirl.define do
 
   trait :with_user_and_block do
     user { FactoryGirl.create :user, email: 'test@test.ru',
-                                         password: '12345',
-                                         password_confirmation: '12345',
+                                         password: '123321',
+                                         password_confirmation: '123321',
                                          locale: 'ru' }
     block { FactoryGirl.create :block }
   end

@@ -1,12 +1,25 @@
 Rails.application.routes.draw do
+  # devise_for :users, ActiveAdmin::Devise.config
+  # ActiveAdmin.routes(self)
+  devise_for :admin_users, {class_name: 'User'}.merge(ActiveAdmin::Devise.config)
+  ActiveAdmin.routes(self)
+
+  devise_for :users, controllers: { registrations: "my_devise/registrations" }
+
   filter :locale
 
   root 'main#index'
 
+  resources :users
+
+  devise_scope :user do
+    get "sign_in" => "devise/sessions#new" # custom path to login/sign_in
+    get "sign_up" => "devise/registrations#new" #, as: "new_user_registration" # custom path to sign_up/registration
+  end
+
   scope module: 'home' do
     resources :user_sessions, only: [:new, :create]
     resources :users, only: [:new, :create]
-    get 'login' => 'user_sessions#new', :as => :login
 
     post 'oauth/callback' => 'oauths#callback'
     get 'oauth/callback' => 'oauths#callback'
@@ -16,8 +29,7 @@ Rails.application.routes.draw do
   scope module: 'dashboard' do
     resources :user_sessions, only: :destroy
     resources :users, only: :destroy
-    post 'logout' => 'user_sessions#destroy', :as => :logout
-
+    
     resources :cards
 
     resources :blocks do

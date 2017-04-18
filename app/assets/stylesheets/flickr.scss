@@ -1,0 +1,15 @@
+// Place all the styles related to the Flickr controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.border {
+  margin: 0; margin-bottom: 25px;
+  background-color: #eee;
+  border: 3px solid #333;
+  padding: 25px;
+}
+#photos img{
+  border: 1px solid #000;
+  width: 75px;
+  height: 75px;
+  margin: 5px;
+}

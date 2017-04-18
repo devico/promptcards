@@ -31,7 +31,8 @@ Rails.application.routes.draw do
     resources :users, only: :destroy
     
     resources :cards
-
+    post 'cards/search' => 'cards#search'
+    
     resources :blocks do
       member do
         put 'set_as_current'

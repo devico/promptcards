@@ -19,6 +19,9 @@ en:
       label: 'Blocks'
       remove_image: 'Delete image'
       submit: 'Save'
+      tags: 'Tags'
+      downflickr: 'Download Flickr'
+      findflickr: 'Find on Flickr'
     profile:
       prompt: 'Select locale'
       label: 'Locale'

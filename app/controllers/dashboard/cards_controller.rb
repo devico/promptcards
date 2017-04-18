@@ -1,4 +1,5 @@
 class Dashboard::CardsController < Dashboard::BaseController
+  require 'flickraw'
   before_action :set_card, only: [:destroy, :edit, :update]
 
   def index
@@ -32,6 +33,13 @@ class Dashboard::CardsController < Dashboard::BaseController
   def destroy
     @card.destroy
     respond_with @card
+  end
+
+  def search
+    FlickRaw.api_key = '9bc714c75d46295d19e2fa6cef21efae'
+    photos = flickr.photos.search(:tags => params[:tags], :per_page => 10)
+    @piece = render_to_string :partial => 'photo.text',
+      :collection => photos.map { |photo| { :square => FlickRaw.url_s(photo), :big => FlickRaw.url(photo) }}
   end
 
   private

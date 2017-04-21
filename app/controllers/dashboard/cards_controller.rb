@@ -35,13 +35,6 @@ class Dashboard::CardsController < Dashboard::BaseController
     respond_with @card
   end
 
-  def search
-    FlickRaw.api_key = '9bc714c75d46295d19e2fa6cef21efae'
-    photos = flickr.photos.search(:tags => params[:tags], :per_page => 10)
-    @piece = render_to_string :partial => 'photo.text',
-      :collection => photos.map { |photo| { :square => FlickRaw.url_s(photo), :big => FlickRaw.url(photo) }}
-  end
-
   private
 
   def set_card
@@ -50,6 +43,6 @@ class Dashboard::CardsController < Dashboard::BaseController
 
   def card_params
     params.require(:card).permit(:original_text, :translated_text, :review_date,
-                                 :image, :image_cache, :remove_image, :block_id)
+                                 :image, :image_cache, :remove_image, :block_id, :remote_image_url)
   end
 end

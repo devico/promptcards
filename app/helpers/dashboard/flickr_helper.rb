@@ -1,0 +1,2 @@
+module Dashboard::FlickrHelper
+end

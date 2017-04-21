@@ -31,7 +31,10 @@ Rails.application.routes.draw do
     resources :users, only: :destroy
     
     resources :cards
-    post 'cards/search' => 'cards#search'
+    
+    get 'flickr/index' => 'flickr#index'
+    get 'flickr/search' => 'flickr#search'
+    #post 'search' => 'flickr#search'
     
     resources :blocks do
       member do

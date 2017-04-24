@@ -1,15 +1,14 @@
 class FlickrSearchPhotos
-  attr_reader :tag, :per_page, :flickr
+  PER_PAGE = 10
+ 
+  def call(tag)
+    client.photos.search(tags: tag, per_page: PER_PAGE).each_slice(2)
+  end
 
-  def initialize(tag)
-    @tag = tag
-    @per_page = 10
-    @flickr = FlickRaw::Flickr.new(api_key: Rails.application.secrets.flickr_api_key, 
+  private def client
+    @client ||= FlickRaw::Flickr.new(
+      api_key: Rails.application.secrets.flickr_api_key, 
       shared_secret: Rails.application.secrets.flickr_secret
     )
-  end
- 
-  def call
-    @flickr.photos.search(tags: @tag, per_page: @per_page).each_slice(2)
   end
 end

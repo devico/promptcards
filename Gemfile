@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 # ruby '2.1.4'
-ruby '2.2.5'
+#ruby '2.2.5'
+ruby '2.4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 #gem 'rails', '4.2.1'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -10,6 +11,8 @@ gem 'rails-i18n'
 gem 'pg'
 gem 'activeadmin', '~> 1.0.0.pre5'
 gem 'inherited_resources', '~> 1.7'
+gem 'webpacker'
+gem 'foreman'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem 'sass-rails'

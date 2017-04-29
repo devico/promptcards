@@ -2,7 +2,11 @@ class Dashboard::FlickrsController < ApplicationController
 
   def index
     @photos = FlickrSearchPhotos.new().call(params[:tags])
-    render :index
+    # render :index
+    respond_to json { render json: { 
+                    'html' => render_to_string(partial: 'photos.html.erb', locals: { photos: @photos })
+                  }
+      }
   end
 
   def search

@@ -1,10 +1,6 @@
 // app/javascript/packs/application.js
 
 import Vue from 'vue'
-//import App from '../components/app.vue'
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.appendChild(document.createElement('app'))
 
   new Vue({
     el: '#vue-cards-form',
@@ -25,4 +21,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
-})
+
+  new Vue({
+    el: "#flickr-block",
+    data: function(){
+      return {
+        tags: ''
+        }
+      }
+    },
+    methods: {
+      searchFlickr: function(event) {
+        var self = this;
+        this.$http.get('/flickrs', { flickrs: self.tags })
+      }
+    }
+          
+  });

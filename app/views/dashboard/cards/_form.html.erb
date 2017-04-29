@@ -1,4 +1,4 @@
-<div id="vue-cards-form">
+<vue-cards-form inline-template>
   <%= simple_form_for card do |f| %>
     <div class="form-group">
       <%= f.input :original_text,  as: :text, label: t('dashboard.cards.original'),
@@ -17,7 +17,13 @@
     </div>
 
     <div class="form-group">
-      <%= link_to 'Загрузить из Flickr', flickrs_search_path %>
+      <div id="flickr-block">
+         
+        <input type="text" v-model="tags">  
+        <button @click="searchFlickr">Найти во Flickr</button>
+
+      </div>
+
     </div>
 
     <div class="form-group">
@@ -43,4 +49,4 @@
     <%= f.button :submit, t('dashboard.cards.submit'), class: 'btn btn-default',
        "v-on": "submit.prevent='onSubmit'" %>
   <% end %>
-</div>
+</vue-cards-form>

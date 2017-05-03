@@ -1,52 +1,44 @@
-<vue-cards-form inline-template>
-  <%= simple_form_for card do |f| %>
+<%= simple_form_for card do |f| %>
+  <div class="form-group">
+    <%= f.input :original_text,  as: :text, label: t('dashboard.cards.original'),
+                input_html: { class: 'form-control', required: true,
+                              autofocus: true, "v-model": "form_obj.original_text" } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :translated_text,  as: :text, label: t('dashboard.cards.translate'),
+                input_html: { class: 'form-control', required: true, "v-model": "form_obj.translated_text" } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :image, as: :file, label: t('dashboard.cards.image') %>
+    <%= f.input :image_cache, as: :hidden, "v-model": "form_obj.image" %>
+  </div>
+
+  <div id="flickr-block">         
+    <input type="text" v-model="tag">  
+    <button type="submit" v-on:click="searchFlickr">Найти во Flickr</button>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :block_id, collection: current_user.blocks.all.order('title'),
+                      prompt: t('dashboard.cards.prompt'), label: t('dashboard.cards.label'),
+                      input_html: { class: 'form-control', required: true, 
+                      "v-model": "form_obj.block" } %>
+  </div>
+
+  <% if card.image? %>
     <div class="form-group">
-      <%= f.input :original_text,  as: :text, label: t('dashboard.cards.original'),
-                  input_html: { class: 'form-control', required: true,
-                                autofocus: true, "v-model": "form_obj.original_text" } %>
-    </div>
-
-    <div class="form-group">
-      <%= f.input :translated_text,  as: :text, label: t('dashboard.cards.translate'),
-                  input_html: { class: 'form-control', required: true, "v-model": "form_obj.translated_text" } %>
-    </div>
-
-    <div class="form-group">
-      <%= f.input :image, as: :file, label: t('dashboard.cards.image') %>
-      <%= f.input :image_cache, as: :hidden, "v-model": "form_obj.image" %>
-    </div>
-
-    <div class="form-group">
-      <div id="flickr-block">
-         
-        <input type="text" v-model="tags">  
-        <button @click="searchFlickr">Найти во Flickr</button>
-
-      </div>
-
-    </div>
-
-    <div class="form-group">
-      <%= f.input :block_id, collection: current_user.blocks.all.order('title'),
-                        prompt: t('dashboard.cards.prompt'), label: t('dashboard.cards.label'),
-                        input_html: { class: 'form-control', required: true, 
-                        "v-model": "form_obj.block" } %>
-    </div>
-
-    <% if card.image? %>
-      <div class="form-group">
-        <%= f.input :remove_image, as: :boolean, label: t('dashboard.cards.remove_image') %>
-        <div class="row">
-          <div class="col-xs-6 col-md-4 card_image">
-            <p class="thumbnail">
-              <%= image_tag card.image_url %>
-            </p>
-          </div>
+      <%= f.input :remove_image, as: :boolean, label: t('dashboard.cards.remove_image') %>
+      <div class="row">
+        <div class="col-xs-6 col-md-4 card_image">
+          <p class="thumbnail">
+            <%= image_tag card.image_url %>
+          </p>
         </div>
       </div>
-    <% end %>
-
-    <%= f.button :submit, t('dashboard.cards.submit'), class: 'btn btn-default',
-       "v-on": "submit.prevent='onSubmit'" %>
+    </div>
   <% end %>
-</vue-cards-form>
+
+  <%= f.button :submit, t('dashboard.cards.submit'), class: 'btn btn-default' %>
+<% end %>

@@ -1,26 +1,14 @@
 // app/javascript/packs/application.js
 'use strict'
 
-import Vue from 'vue'
+import Vue from 'vue/dist/vue.esm'
 import VueResource from 'vue-resource'
+import flickr from '../components/flickr.vue'
 
-//
 
-document.addEventListener("DOMContentLoaded", function() {
-
+document.addEventListener("DOMContentLoaded", () => {
   Vue.use(VueResource)
-  
-  new Vue({
-    el: '#flickr-block',    
-    data: {
-      tag: ''
-    },
-    methods: {
-      searchFlickr: function() {
-        console.log('help me!')
-        // let self = this;
-        // this.$http.get('/flickrs', { flickrs: self.tag })
-      }
-    }   
-  });
+
+  new Vue(flickr)
+
 });

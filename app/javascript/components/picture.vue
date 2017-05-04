@@ -1,20 +1,13 @@
 <template>
   <div>
-    <img v-for="image in images" :src='image'"/>        
+    <img v-bind:src="image"/>
   </div>
 </template>
 
 <script>
 
-  const pic = '#pictures'
- 
-   export default { 
-    pic,
-    data: function () {
-      return { 
-        images: []
-      }
-    },
+  export default {
+    props: ['image'],
     methods: {
       onClick: function () {
         console.log("Select")

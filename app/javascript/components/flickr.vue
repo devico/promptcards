@@ -25,8 +25,6 @@
 
     this.$http.get('/flickrs?tags=' + this.tag).then(response => {
       this.images = response.body;
-      // console.log(response.body)
-      
     }, error => {
       console.log(error)
     })

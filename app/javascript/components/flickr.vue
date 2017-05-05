@@ -3,7 +3,10 @@
     <input type="text" v-model="tag">  
     <button type="submit" v-on:click.prevent="searchFlickr">Найти во Flickr</button>
 
-    <picture v-for="image in images" image='image'></picture>
+    <picture v-for="image in images" :image='image'></picture>
+    <div class="input hidden card_remote_image_url">
+      <input type="hidden" name="remote_url" v-on:selected-image />
+    </div>
   </div>
 </template>
 

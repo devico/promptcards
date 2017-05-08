@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="image" v-on:click="clickSelect"/>
+    <img :src="image" @click="selectImage"/>
   </div>
 </template>
 
@@ -9,10 +9,9 @@
   export default {
     props: ['image'],
     methods: {
-      clickSelect: function () {
-        console.log(this.image)
-        this.$emit('selected_image', this.image)
-        
+      selectImage: function () {
+        //console.log('has been selected ' + this.image)
+        this.$emit('selectedImage', this.image)
       }
     }
   }

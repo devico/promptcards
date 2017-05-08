@@ -2,11 +2,10 @@
   <div>
     <input type="text" v-model="tag">  
     <button type="submit" v-on:click.prevent="searchFlickr">Найти во Flickr</button>
-
-    <picture v-for="image in images" :image='image'></picture>
+    <picture v-for="image in images" :key = 'image' :image='image' @selectedImage="remoteImageForCard"></picture>
     <div class="input hidden card_remote_image_url">
-      <input type="hidden" name="remote_url" v-on:selected-image />
-    </div>
+       <input type="hidden" name="remote_image_url" v-model="selectedImage"/>
+     </div>
   </div>
 </template>
 
@@ -19,7 +18,8 @@
   function data() {
     return {
       tag: '',
-      images: []
+      images: [],
+      selectedImage: ''
     }
   }
 
@@ -37,7 +37,11 @@
   export default {
     el, data,
     methods: {
-      searchFlickr
+      searchFlickr,
+      remoteImageForCard (value) {
+        //console.log(value) // someValue
+        this.selectedImage = value
+      }
     },
     components: { 
       picture 

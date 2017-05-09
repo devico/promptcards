@@ -4,7 +4,7 @@
     <button type="submit" v-on:click.prevent="searchFlickr">Найти во Flickr</button>
     <picture v-for="image in images" :key = 'image' :image='image' @selectedImage="remoteImageForCard"></picture>
     <div class="input hidden card_remote_image_url">
-       <input type="hidden" name="remote_image_url" v-model="selectedImage"/>
+      <input class="input" type="hidden" name="card[remote_image_url]" id="card_remote_image_url" v-model="selectedImage" />       
      </div>
   </div>
 </template>
@@ -39,7 +39,7 @@
     methods: {
       searchFlickr,
       remoteImageForCard (value) {
-        //console.log(value) // someValue
+        console.log(value) // someValue
         this.selectedImage = value
       }
     },

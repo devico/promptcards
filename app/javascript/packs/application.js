@@ -1,7 +1,7 @@
 // app/javascript/packs/application.js
 'use strict'
 
-import Vue from 'vue/dist/vue.esm'
+import Vue from 'vue'
 import VueResource from 'vue-resource'
 import flickr from '../components/flickr.vue'
 

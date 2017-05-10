@@ -27,18 +27,19 @@
 
     console.log(this.tag)
 
-    this.$http.get('/flickrs?tags=' + this.tag).then(response => {
+    this.$http.get('/flickrs?tags=' + this.tag).then(function(response) {
       this.images = response.body;
-    }, error => {
+    }, function(error) {
       console.log(error)
     })
   }
 
   export default {
-    el, data,
+    el: el, 
+    data: data,
     methods: {
-      searchFlickr,
-      remoteImageForCard (value) {
+      searchFlickr: searchFlickr,
+      remoteImageForCard: function(value) {
         console.log(value) // someValue
         this.selectedImage = value
       }

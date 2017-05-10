@@ -8,10 +8,9 @@ RSpec.describe Dashboard::FlickrsController, type: :controller do
   end
 
   describe "#index" do
-
-    it "returns a successful response" do
+    it "returns a successful response" do      
       VCR.use_cassette "flickr/photos" do 
-        get :index, format: :json
+        get :index, :params => { tags: 'router' }, format: :json
         expect(response).to be_success
       end      
     end

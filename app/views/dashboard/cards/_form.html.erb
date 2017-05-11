@@ -1,3 +1,6 @@
+<%= content_for :javascript_packs do %>
+  <%= javascript_pack_tag 'application' %>
+<% end %>
 <%= simple_form_for card do |f| %>
   <div class="form-group">
     <%= f.input :original_text,  as: :text, label: t('dashboard.cards.original'),

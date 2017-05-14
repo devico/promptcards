@@ -31,7 +31,15 @@ Rails.application.routes.draw do
     resources :users, only: :destroy
     
     resources :cards
-
+    resources :flickrs, only: [:index, :search]
+    
+    # get 'flickr/index' => 'flickr#index'
+    # get 'flickr/search' => 'flickr#search'
+    
+    # get 'flickr/index' => 'flickr#index'
+    # get 'flickr/search' => 'flickr#search'
+    get 'flickrs/search' => 'flickrs#search'
+    
     resources :blocks do
       member do
         put 'set_as_current'

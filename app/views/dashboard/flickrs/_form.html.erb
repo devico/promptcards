@@ -1,0 +1,6 @@
+  <%= form_tag flickrs, url: flickrs_path, method: :get do %>
+    <label for="tags"><%= t('dashboard.cards.tags') %></label>
+    <%= text_field_tag 'tags' %>
+    <%= hidden_field_tag 'remote_image_url' %> 
+    <%= submit_tag "Найти", :name => "submit", :disable_with => "Ищу" %>
+  <% end %>

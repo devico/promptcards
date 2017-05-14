@@ -19,6 +19,9 @@ ru:
       label: 'Колоды'
       remove_image: 'Удалить изображение'
       submit: 'Сохранить'
+      tags: 'Тэги'
+      downflickr: 'Загрузить Flickr'
+      findflickr: 'Найти во Flickr'
     profile:
       prompt: 'Выберите локаль'
       label: 'Локаль'

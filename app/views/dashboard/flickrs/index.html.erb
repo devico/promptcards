@@ -1,0 +1,11 @@
+<h3>Загрузить из Flickr</h3>
+
+  <table class="table table-hover table-condensed">
+    <% @photos.each do |collection| %>
+    <tr class="table table-hover table-condensed">
+      <% collection.each do |item| %>
+        <td><%= image_tag(FlickRaw.url_s(item)) %></td>
+      <% end %>
+    </tr>  
+    <% end %>  
+  </table>

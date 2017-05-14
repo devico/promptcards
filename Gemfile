@@ -46,6 +46,7 @@ gem 'routing-filter'
 gem 'rollbar'
 gem 'newrelic_rpm'
 gem 'responders'
+gem 'api_promptcards', git: 'https://github.com/devico/api_promptcards'
 
 group :development, :test do
   gem 'rspec-rails'

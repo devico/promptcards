@@ -8,7 +8,7 @@
 /.bundle
 
 #Ignore engines
-/api_promptcards
+/lib/engines
 
 # Ignore all logfiles and tempfiles.
 /log/*

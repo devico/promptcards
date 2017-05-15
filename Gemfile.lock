@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/devico/api_promptcards
+  revision: 1af35dadf5ae1722b125a5f7e0f6234db9e44330
+  specs:
+    api_promptcards (0.1.0)
+      rails (~> 5.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -309,6 +316,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin (~> 1.0.0.pre5)
+  api_promptcards!
   bcrypt
   capybara
   carrierwave

@@ -47,6 +47,7 @@ gem 'rollbar'
 gem 'newrelic_rpm'
 gem 'responders'
 gem 'api_promptcards', git: 'https://github.com/devico/api_promptcards'
+#gem 'api_promptcards', path: 'lib/engines/api_promptcards'
 
 group :development, :test do
   gem 'rspec-rails'

@@ -36,11 +36,6 @@ Rails.application.routes.draw do
     resources :cards
     resources :flickrs, only: [:index, :search]
     
-    # get 'flickr/index' => 'flickr#index'
-    # get 'flickr/search' => 'flickr#search'
-    
-    # get 'flickr/index' => 'flickr#index'
-    # get 'flickr/search' => 'flickr#search'
     get 'flickrs/search' => 'flickrs#search'
     
     resources :blocks do
@@ -50,8 +45,8 @@ Rails.application.routes.draw do
       end
     end
 
-    put 'review_card' => 'trainer#review_card'
-    get 'trainer' => 'trainer#index'
+    #put 'review_card' => 'trainer#review_card'
+    #get 'trainer' => 'trainer#index'
 
     get 'profile/:id/edit' => 'profile#edit', as: :edit_profile
     put 'profile/:id' => 'profile#update', as: :profile

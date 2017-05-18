@@ -16,6 +16,7 @@ gem 'foreman'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem 'sass-rails'
+gem 'bootstrap-sass'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails'
 gem 'jquery-rails'
@@ -46,6 +47,8 @@ gem 'routing-filter'
 gem 'rollbar'
 gem 'newrelic_rpm'
 gem 'responders'
+gem 'api_promptcards', git: 'https://github.com/devico/api_promptcards'
+#gem 'api_promptcards', path: 'lib/engines/api_promptcards'
 
 group :development, :test do
   gem 'rspec-rails'

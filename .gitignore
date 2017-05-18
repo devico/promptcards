@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+#Ignore engines
+/lib/engines
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
